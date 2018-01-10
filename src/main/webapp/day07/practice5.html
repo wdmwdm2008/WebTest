@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link type="text/css" rel="Stylesheet" href="myStyle.css"/>
+<script src="myJS.js"></script>
+</head>
+<body>
+	<!-- account -->
+	<div class="text_info">管理员账号：</div>
+	<div class="input_info">
+		<input type="text" id="txtAccount" onfocus="inputFocus(this, 'account_msg')" onblur="valiAccount(this,'account_msg')"/>
+		<span>*</span>
+	</div>
+	<div class="vali_info">
+		<span id="account_msg">10 长度以内的字母，数字的组合</span>
+	</div>
+	<!-- password -->
+	<div class="text_info">密码：</div>
+	<div class="input_info"> 
+		<input type="password" id="txtPwd" onfocus="inputFocus(this, 'pwd_msg')" onblur="valiPwd(this,'pwd_msg')"/>
+		<span>*</span>
+	</div>
+	<div class="vali_info">
+		<span id="pwd_msg">8 长度以内的字母，数字和下划线的组合</span>
+	</div>
+	<!-- Cell Phone -->
+	<div class="text_info">电话号码:</div>
+	<div class="input_info">
+		<input type="text" id="txtPhone" onfocus="inputFocus(this, 'phone_msg')" onblur="valiPhone(this,'phone_msg')"/>
+		<span>*</span>
+	</div>
+	<div class="vali_info">
+		<span id="phone_msg">形如： 010-12345678</span>
+	</div>
+	<div class="button_info">
+		<input type="submit" value="保存" onclick="return validateDatas()"/>
+		<input type="reset" value="重填">
+	</div>
+</body>
+</html>
