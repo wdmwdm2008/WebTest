@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Data Form</title>
+<style>
+	table{
+		border-collapse: collapse;
+		width: 300px;
+		text-align: center;
+		margin-top: 20px;
+	}
+	td{
+		border: 1px solid silver;
+		height: 10px;
+		line-height: 30px;
+		font-size: 12pt;
+	}
+	thead{
+		background-color: #ddd;
+		height: 40px;
+		line-height: 40px;
+		font-size: 14pt;
+		font-weight: bold;
+	}
+</style>
+<script>
+	function addProduct(){
+		
+		// Obtaining table object
+		var table = document.getElementsByTagName("table");
+		//Creating new row
+		var row = table[0].insertRow(table[0].rows.length);
+		
+		//Creating cells for new row
+		var idCell = row.insertCell(0);
+		var nameCell = row.insertCell(1);
+		var delCell = row.insertCell(2);
+		
+		//Writing data into cells
+		idCell.innerHTML = document.getElementById("textID").value;
+		nameCell.innerHTML = document.getElementById("textName").value;
+		var button = document.createElement("input");
+		button.type = "button";
+		button.value = "Delete";
+		button.onclick = function(){deleteProduct(this);};
+		delCell.appendChild(button);
+	}
+	
+	
+	function deleteProduct(btnObj){
+		var isCon = confirm("Are you sure you want to delete it?");
+		if (!isCon){
+			return;
+		}
+		var rowObj = btnObj.parentNode.parentNode;
+		var id = rowObj.getElementsByTagName("td")[0].innerHTML;
+		var table = document.getElementsByTagName("table");
+		for (var i = 0; i < table[0].rows.length; i++){
+			if(table[0].rows[i].cells[0].innerHTML == id){
+				table[0].deleteRow(i);
+				break;
+			}
+		}
+		alert("Deleting data that ID is " + id);
+	}
+</script>
+</head>
+<body>
+	<span>
+		ID:<input type="text" id="textID"/>
+		Name:<input type="text" id="textName"/>
+		<input type="button" value="ADD" onclick="addProduct()"/>
+	</span>
+	<table>
+		<thead>
+			<tr>
+				<td>Product ID</td>
+				<td>Product NAME</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>book1</td>
+				<td><input type="button" value="Delete" onclick="deleteProduct(this)"/></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
