@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopping Cart</title>
+<style>
+	table {
+		border-collapse: collapse;
+	}
+	td {
+		text-align: center;
+		height: 30px;
+		border: 1px solid gray;
+	}
+	
+	input {
+		border: 1px solid gray;
+		font-size: 13pt;
+		line-height: 18pt;
+	}
+	input.btn{
+		width: 20px;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	
+	input.txt{
+		width: 35px;
+	}
+</style>
+<script>
+	var input1;
+	var input2;
+	var input3;
+	window.onload = function(){
+		input1 = document.getElementById("txtString_1");
+		input2 = document.getElementById("txtString_2");
+		input3 = document.getElementById("txtString_3");
+		td1 = document.getElementById("td_1");
+		td2 = document.getElementById("td_2");
+		td3 = document.getElementById("td_3");
+		td4 = document.getElementById("td_4");
+	}
+	function subtract(cons){
+		switch(cons){
+		case 1:
+			if(input1.value > 0){
+				input1.value = parseInt(input1.value) - 1;
+				td1.innerHTML = (parseInt(td1.innerHTML) - 10.00).toFixed(2);
+				td4.innerHTML = (parseInt(td4.innerHTML) - 10.00).toFixed(2);
+			}
+			break;
+		case 2:
+			if(input2.value > 0){
+				input2.value = parseInt(input2.value) - 1;
+				td2.innerHTML = (parseInt(td2.innerHTML) - 5.00).toFixed(2);
+				td4.innerHTML = (parseInt(td4.innerHTML) - 5.00).toFixed(2);
+			}
+			break;
+		case 3:
+			if(input3.value > 0){
+				input3.value = parseInt(input3.value) - 1;
+				td3.innerHTML = (parseInt(td3.innerHTML) - 15.00).toFixed(2);
+				td4.innerHTML = (parseInt(td4.innerHTML) - 15.00).toFixed(2);
+			}
+			break;
+		}
+	}
+	function addition(cons){
+		switch(cons){
+		case 1:
+			input1.value = parseInt(input1.value) + 1;
+			td1.innerHTML = (parseInt(td1.innerHTML) + 10.00).toFixed(2);
+			td4.innerHTML = (parseInt(td4.innerHTML) + 10.00).toFixed(2);
+			break;
+		case 2:
+			input2.value = parseInt(input2.value) + 1;
+			td2.innerHTML = (parseInt(td2.innerHTML) + 5.00).toFixed(2);
+			td4.innerHTML = (parseInt(td4.innerHTML) + 5.00).toFixed(2);
+			break;
+		case 3:
+			input3.value = parseInt(input3.value) + 1;
+			td3.innerHTML = (parseInt(td3.innerHTML) + 15.00).toFixed(2);
+			td4.innerHTML = (parseInt(td4.innerHTML) + 15.00).toFixed(2);
+			break;
+		}
+	}
+</script>
+</head>
+<body>
+	<table id="shoppingCart">
+		<thead>
+			<tr>
+				<td style="width: 100px">Goods Name</td>
+				<td style="width: 100px">Price</td>
+				<td style="width: 150px;">Quantity</td>
+				<td style="width: 100px">SubTotal</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>book1</td>
+				<td>10.00</td>
+				<td>
+					<input class="btn" type="button" value="-" onclick="subtract(1)"/>
+					<input class="txt" type="text" value="1" id="txtString_1"/>
+					<input class="btn" type="button" value="+" onclick="addition(1)"/>
+				</td>
+				<td id="td_1">10.00</td>
+			</tr>
+			<tr>
+				<td>book2</td>
+				<td>5.00</td>
+				<td>
+					<input class="btn" type="button" value="-" onclick="subtract(2)"/>
+					<input class="txt" type="text" value="1" id="txtString_2"/>
+					<input class="btn" type="button" value="+" onclick="addition(2)"/>
+				</td>
+				<td id="td_2">5.00</td>
+			</tr>
+			<tr>
+				<td>book3</td>
+				<td>15.00</td>
+				<td>
+					<input class="btn" type="button" value="-" onclick="subtract(3)"/>
+					<input class="txt" type="text" value="1" id="txtString_3"/>
+					<input class="btn" type="button" value="+" onclick="addition(3)"/>
+				</td>
+				<td id="td_3">15.00</td>
+			</tr>
+			<tr>
+				<td style="text-align:right" colspan="3">Total:</td>
+				<td id="td_4">30.00</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
