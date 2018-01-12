@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Calculator</title>
+<script>
+	function calculator(e){
+		
+		//Obtaining node which actived event
+		var node = e.srcElement || e.target;
+		//Processing event
+		if(node.nodeName == "input" || node.type == "button"){
+			if (node.value == "="){
+				var expression = document.getElementById("txtString").value
+				document.getElementById("txtString").value = eval(expression);
+			} else {
+				document.getElementById("txtString").value += node.value;	
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<div onclick="calculator(event)">
+		<input type="button" value="1"/>
+		<input type="button" value="2"/>
+		<input type="button" value="3"/>
+		<input type="button" value="4"/>
+		<input type="button" value="+"/>
+		<input type="button" value="-"/>
+		<input type="button" value="="/><br/>
+		<input type="text" id="txtString"/>
+	</div>
+</body>
+</html>
