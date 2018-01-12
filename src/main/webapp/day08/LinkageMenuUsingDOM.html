@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Linkage Menu</title>
+<script>
+	// two-dimension array: Storing course infos
+	var projectArray = new Array();
+	projectArray[0] = ["options"];
+	projectArray[1] = ["CoreJava", "Oracle", "JSP", "JDBC"];
+	projectArray[2] = ["pS","CSS"];
+	projectArray[3] = ["PHP", "MySql", "Jquery"];
+	
+	//Writing courses into according to the selected major
+	function classChanged(){
+		
+		// Obtaining major's index and courses
+		var i = document.getElementById("selClass").selectedIndex;
+		var data = projectArray[i];
+		
+		// Obtaining course select box objects
+		var selObj = document.getElementById("selProject");
+		
+		// Deleting original course objects
+		selObj.options.length = 0;
+		
+		// Writing new courses into 
+		for (var i = 0 ; i < data.length; i++){
+			var optionObj = new Option(data[i], i);
+			selObj.options[i] = optionObj;
+		}
+	}
+
+</script>
+</head>
+<body>
+	<span>
+		Majors:
+		<select id="selClass" onchange="classChanged()">
+			<option>options</option>
+			<option>JSD</option>
+			<option>UID</option>
+			<option>PHP</option>
+		</select>
+		Courses:
+		<select id="selProject">
+			<option>options</option>
+		</select>
+	</span>
+</body>
+</html>
