@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Data Form</title>
+<style>
+	table{
+		border-collapse: collapse;
+		width: 300px;
+		text-align: center;
+		margin-top: 20px;
+	}
+	td{
+		border: 1px solid silver;
+		height: 10px;
+		line-height: 30px;
+		font-size: 12pt;
+	}
+	thead{
+		background-color: #ddd;
+		height: 40px;
+		line-height: 40px;
+		font-size: 14pt;
+		font-weight: bold;
+	}
+</style>
+<script>
+	function addProduct(){
+		
+		// Obtaining table object
+		var table = document.getElementsByTagName("table");
+		//Creating new row
+		var row = table[0].insertRow(table[0].rows.length);
+		
+		//Creating cells for new row
+		var idCell = row.insertCell(0);
+		var nameCell = row.insertCell(1);
+		
+		//Writing data into cells
+		idCell.innerHTML = document.getElementById("textID").value;
+		nameCell.innerHTML = document.getElementById("textName").value;
+	}
+</script>
+</head>
+<body>
+	<span>
+		ID:<input type="text" id="textID"/>
+		Name:<input type="text" id="textName"/>
+		<input type="button" value="ADD" onclick="addProduct()"/>
+	</span>
+	<table>
+		<thead>
+			<tr>
+				<td>Product ID</td>
+				<td>Product NAME</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>book1</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
